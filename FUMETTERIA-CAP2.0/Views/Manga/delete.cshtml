@@ -1,0 +1,72 @@
+﻿@model FUMETTERIA_CAP2._0.Models.Manga
+
+@{
+    ViewBag.Title = "delete";
+}
+
+<h2 class="text-center bold-text">ELIMINA MANGA</h2>
+
+<h3 class="text-center bold-text" >sei sicuro di voler eliminare il manga?</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal px-2 card color"  >
+        <dt>
+            <span class="bold-text"> @Html.DisplayNameFor(model => model.Autore.nome)</span>
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.Autore.nome)</span> 
+        </dd>
+
+        <dt>
+            <span class="bold-text"> @Html.DisplayNameFor(model => model.Genere.genere1)</span> 
+        </dt>
+
+        <dd>
+            <span class="bold-text"> @Html.DisplayFor(model => model.Genere.genere1)</span> 
+        </dd>
+
+        <dt>
+            <span class="bold-text">@Html.DisplayNameFor(model => model.nome)</span>
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.nome)</span> 
+        </dd>
+
+        <dt>
+            <span class="bold-text">@Html.DisplayNameFor(model => model.foto)</span> 
+        </dt>
+
+        <dd>
+            <img src="~/Content/img/@Model.foto" alt="Immagine del Manga" class="img-fluid rounded-start " style="width:10%">
+        </dd>
+
+        <dt>
+            <span class="bold-text">@Html.DisplayNameFor(model => model.prezzo)</span> 
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.prezzo)</span>  
+        </dd>
+
+        <dt>
+            <span class="bold-text">@Html.DisplayNameFor(model => model.descrizione)</span> 
+        </dt>
+
+        <dd>
+            <span class="bold-text"> @Html.DisplayFor(model => model.descrizione)</span> 
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Elimina" class="btn btn-primary " /> |
+            @Html.ActionLink("RITORNA ALLA LISTA", "Index")
+        </div>
+    }
+</div>

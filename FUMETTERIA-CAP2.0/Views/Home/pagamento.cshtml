@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "pagamento";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-12 mt-4">
+            <div class="card color p-3">
+                <p class="mb-0  fw-bold h4">Metodo di pagamento</p>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="card color p-3">
+
+                <div class="card-body border p-0">
+                    <p>
+                        <a class="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
+                           data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true"
+                           aria-controls="collapseExample">
+                            <span class="fw-bold">Carta di Credito</span>
+                            <span class="">
+                                <span class="fab fa-cc-amex"></span>
+                                <span class="fab fa-cc-mastercard"></span>
+                                <span class="fab fa-cc-discover"></span>
+                            </span>
+                        </a>
+                    </p>
+                    <div class="collapse show p-3 pt-0" id="collapseExample">
+                        <div class="row">
+
+                            <div class="col-lg-7">
+                                <form action="" class="form">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form__div">
+                                                <input type="password" class="form-control" placeholder=" ">
+                                                <label for="" class="form__label">numero carta</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form__div">
+                                                <input type="text" class="form-control" placeholder=" ">
+                                                <label for="" class="form__label">MM / yy</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form__div">
+                                                <input type="password" class="form-control" placeholder=" ">
+                                                <label for="" class="form__label">cvv </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form__div">
+                                                <input type="text" class="form-control" placeholder=" ">
+                                                <label for="" class="form__label">nome sulla carta</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary my-2 payment" id="makePaymentBtn">
+                Esegui pagamento
+            </button>
+        </div>
+    </div>
+</div>
+<div class="modal " tabindex="-1" id="myModal">
+    <div class="modal-dialog ">
+        <div style="background-color: #52c6e8;" class="modal-content card ">
+            <div class="modal-header">
+                <h5 class="modal-title bold-text ">CONFERMA DI PAGAMENTO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bold-text">
+                <p>CONFERMA IL PAGAMENTO, GRAZIE!!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Annulla</button>
+                <a href="#" id="confirmPaymentBtn" class="btn btn-primary">Confermo il pagamento</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="myModal2">
+    <div class="modal-dialog">
+        <div  style="background-color: #52c6e8;"class="modal-content card">
+            <div class="modal-header">
+                <h5 class="modal-title bold-text">PAGAMENTO AVVENUTO CON SUCCESSO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bold-text">
+                <p>grazie di aver scelto TUTTOMANGA</p>
+            </div>
+            <div class="modal-footer">
+
+                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">TORNA ALLA HOME</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#makePaymentBtn").click(function () {
+                $("#myModal").modal('show');
+            });
+
+            $("#confirmPaymentBtn").click(function () {
+                $("#myModal").modal('hide');
+                setTimeout(function () {
+                    $("#myModal2").modal('show');
+                }, 2000);
+            });
+        });
+    </script>
+}
+

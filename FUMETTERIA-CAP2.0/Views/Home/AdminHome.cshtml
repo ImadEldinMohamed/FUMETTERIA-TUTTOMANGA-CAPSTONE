@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "AdminHome";
+}
+
+
+
+<h2 class="text-center bold-text">Fumetteria TUTTOMANGA</h2>
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 slide-in">
+
+
+        <div class="card mb-3 col color  " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku1.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> I MANGA DISPONIBILI NEL CATOLOGO</h2>
+                        <p class="card-text"><strong>manga disponibili</strong> </p>
+                        @Html.ActionLink("mostra manga", "Index", "Manga", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 col color  " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku2.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title">INSERISCI UN NUOVO MANGA</h2>
+                        <p class="card-text"><strong>inserisci un nuovo manga nel  nostro catalogo</strong> </p>
+                        @Html.ActionLink("Inserisci Manga", "Create", "Manga", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="card mb-3 col color   " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku3.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> POPOLARI DEL MESE</h2>
+                        <p class="card-text"><strong>personaggi del mese</strong></p>
+                        @Html.ActionLink("mostra popolari", "Index", "Popolari", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mb-3 col color " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/vegeta.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> AGGIORNA PERSONAGGI POPOLARI</h2>
+                        <p class="card-text"><strong>inserisci un nuovo personaggio</strong></p>
+                        @Html.ActionLink("inserisci popolari", "Create", "Popolari", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card mb-3 col color  " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku1.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title">AUTORI MANGA GIA REGISTRATI</h2>
+                        <p class="card-text"><strong>autori</strong></p>
+                        @Html.ActionLink("mostra autori", "Index", "Autore", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card mb-3 col color " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku2.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            INSERISCI UN NUOVO AUTORE
+                        </h2>
+                        <p class="card-text"><strong>personaggi del mese</strong></p>
+                        @Html.ActionLink(" inserisci autore", "Create", "Autore", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mb-3  col color  " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku3.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> RECENSIONI DEI NOSTRI CLIENTI</h2>
+                        <p class="card-text"><strong>recensioni</strong></p>
+                        @Html.ActionLink("mostra recensioni", "Index", "Recensione", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3 col color  " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/vegeta.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> ORDINI  DEI  NOSTRI CLIENTI</h2>
+                        <p class="card-text"><strong>visualizza gli ordini </strong> </p>
+                        @Html.ActionLink("Ordini", "Index", "Ordine", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<FUMETTERIA_CAP2._0.Models.Ordine>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">LISTA ORDINI</h2>
+
+
+<table class="table   table-striped table-bordered ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isSpedito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isConcluso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.importo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span class="bold-text card color"> @Html.DisplayFor(modelItem => item.User.username)</span>
+            </td>
+            <td>
+                <span class="bold-text card color"> @(item.data.ToShortDateString())</span>
+
+            </td>
+            <td>
+                <span class="bold-text ">@Html.DisplayFor(modelItem => item.isSpedito)</span>
+            </td>
+            <td>
+                <span class="bold-text ">@Html.DisplayFor(modelItem => item.isConcluso)</span>
+            </td>
+            <td>
+                <span class="bold-text card color">@Html.DisplayFor(modelItem => item.indirizzo)</span>
+            </td>
+            <td>
+                <span class="bold-text card color">@Html.DisplayFor(modelItem => item.importo)</span>
+            </td>
+            <td>
+                @Html.ActionLink("Aggiorna stato ordine", "Edit", new { id = item.IDordine }, new { @class = "text-primary bold-text " }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="card color">
+    <div>
+        <h5>TUTTOMANGA GUADAGNI</h5>
+        <label class="bold-text" for="date"> Data</label>
+        <input class="color" type="date" id="dataGuadagni" />
+        <button class="btn btn-primary my-2" id="Guadagno">tuttomanga ricavo </button>
+    </div>
+    <div>
+        <ul id="totale"></ul>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+            $("#Guadagno").click(function () {
+                $("#totale").empty();
+                var dataricavi = $("#dataGuadagni").val();
+                $.ajax({
+                    method: 'GET',
+                    url: "Ordine/guadagni",
+                    data: { date: dataricavi },
+                    success: function (soldi) {
+
+                        var lista = $("<li>")
+                            .addClass("bold-text")  
+                            .html("Totale della giornata: € " + soldi + "<br>Arrivederci");
+                            $("#totale").append(lista);
+
+                    }
+                });
+            });
+        });</script>
+
+
+}

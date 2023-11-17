@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "UserHome";
+}
+
+
+
+<h1 class="text-center">FUMETTERIA</h1>
+
+<div class=" text-center"><strong>Benvenuto @User.Identity.Name</strong></div>
+ 
+<div class="slide-in">
+
+    <div class="text-center d-flex flex-column justify-content-center align-items-center">
+        <div class="card mb-3 color   " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class=" col-4">
+                    <img src="~/Content/img/goku3.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> ACQUISTA I TUOI MANGA</h2>
+                        <p class="card-text bold-text"> dai un'occhiata ai manga del nostro catologo'</p>
+                        @Html.ActionLink("mostra manga", "Index", "Home", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 color   " style="max-width: 540px;">
+            <div class="row g-0 ">
+                <div class="col-4">
+                    <img src="~/Content/img/goku2.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title">POPOLARI DEL MESE</h2>
+                        <p class="card-text bold-text">scopri i personaggi piu votati durante il mese </p>
+                        @Html.ActionLink("lista popolari", "Index2", "Home", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 color   " style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="~/Content/img/goku1.png" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h2 class="card-title"> LASCIA UNA RECENSIONE</h2>
+                        <p class="card-text bold-text"> condividi con gli altri utenti la tua opinione</p>
+                        @Html.ActionLink("recensione", "CreaRecensione", "Recensione", "", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

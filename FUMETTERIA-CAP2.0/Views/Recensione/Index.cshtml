@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FUMETTERIA_CAP2._0.Models.Recensione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="bold-text text-center">DICONO DI NOI</h2>
+
+<p>
+    @Html.ActionLink("INSERISCI RECENSIONE", "CreaRecensione", "Recensione", null, new { @class = "text-primary bold-text " })
+</p>
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+        @foreach (FUMETTERIA_CAP2._0.Models.Recensione item in Model)
+        {
+
+            <div class="mx-4 mx-sm-0 mb-3 ">
+                <div class="card color h-100 g-3 border border-dark  " style="width: 12rem;">
+                    <img src="~/Content/img/vegeth2.jpg" class="card-img-top" alt="..." style="width: 100%;height:auto;">
+                    <div class="card-body">
+                        <h4 class="card-title"><strong>@item.User.username</strong></h4>
+                        <p class="card-text bold-text"><strong>RECENSIONE:</strong>@item.descrizione</p>
+
+
+                   
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

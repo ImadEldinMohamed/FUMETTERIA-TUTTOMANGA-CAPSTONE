@@ -1,0 +1,68 @@
+﻿@model FUMETTERIA_CAP2._0.Models.User
+
+@{
+    ViewBag.Title = "Registrazione";
+}
+
+
+
+
+<section>
+    <div class="container py-5 ">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card color" style="border-radius: 1rem;">
+                    <div class="card-body p-4 text-center">
+
+                        <h2 class="fw-bold mb-2 text-uppercase">Registrazione</h2>
+                        <p class="text-dark-50 mb-4 bold-text">Inserisci i dati</p>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group  d-flex flex-column justify-content-center align-items-center  mb-2">
+                                @Html.LabelFor(model => model.username, new { @class = "control-label bold-text" })
+                                @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control  " } })
+                                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group  d-flex flex-column justify-content-center align-items-center  mb-2">
+                                @Html.LabelFor(model => model.password, new { @class = "control-label bold-text" })
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group  d-flex flex-column justify-content-center align-items-center  mb-2">
+                                @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label bold-text" })
+                                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group  d-flex flex-column justify-content-center align-items-center  mb-2">
+                                @Html.LabelFor(model => model.cognome, htmlAttributes: new { @class = "control-label bold-text" })
+                                @Html.EditorFor(model => model.cognome, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.cognome, "", new { @class = "text-danger" })
+                            </div>
+                            <button class="btn btn-outline-dark btn-lg px-4" type="submit">Registrati</button>
+
+                        }
+
+
+                        <div>
+                            @Html.ActionLink("ritorna al login", "Login", "Login", null, new { @class = "text-primary bold-text " })
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,35 @@
+﻿<h2 class="bold-text text-center">IL TUO CARRELLO</h2>
+@Html.ActionLink("TORNA IN NEGOZIO", "Index", "Home", null, new { @class = "text-primary bold-text" })
+@if (ViewBag.Carrello != null && ViewBag.Carrello.Count > 0)
+{
+    foreach (var item in ViewBag.Carrello)
+    {
+
+        <div class="d-flex  align-items-center justify-content-center card color slide-in">
+            <div class="d-flex">
+                <img src="~/Content/img/@item.Foto" class="card-img-top" alt="..." style="width: auto;height:200px;">
+                <div class="d-flex flex-column">
+                    <p class="bold-text">@item.Nome</p>
+
+                    <p class="bold-text">Quantità:@item.Quantita</p>
+                    <p class="bold-text"> Prezzo:  @item.CostoFumetti.ToString("C0")</p>
+
+                    @Html.ActionLink("Rimuovi", "Rimuovi", "Carrello", new { nomeProdotto = item.Nome }, new { @class = "btn bold-text card color mx-4" })
+
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div class="text-center mt-5 card color">
+        <p class="bold-text">Totale:€ @FUMETTERIA_CAP2._0.Models.Carrello.CostoTot(ViewBag.Carrello).ToString("F0")</p>
+        @Html.ActionLink("Ordina", "creaOrdine", "Ordine", null, new { @class = "btn btn-primary bold-text" })
+    </div>
+
+}
+else
+{
+    <p class="bold-text">Aggiungi prodotti nel carrello</p>
+}
+  </div>

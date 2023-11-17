@@ -1,0 +1,112 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.card {
+    cursor: pointer !important;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+
+}
+    .card:hover {
+        transform: translateY(-5px);
+        background-color: #52c6e8;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 15px rgba(0, 0, 0, 0.2);
+        transition: all 1s ease;
+    
+    }
+
+body {
+    background-image: url(./img/vegeta.jpg);
+    background-repeat: repeat;
+    background-size: 35%;
+    min-height: 100vh;
+   
+}
+
+.color {
+    background-color: #7fcbff6b;
+}
+
+/* Stile base per il contenitore della barra di ricerca */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Stile per il campo di input di ricerca */
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Stile per il pulsante di ricerca */
+#searchButton {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    /* Stile per il pulsante di ricerca al passaggio del mouse */
+    #searchButton:hover {
+        background-color: #0056b3;
+    }
+
+
+/* Stile per il bordo del campo di input al passaggio del mouse */
+#searchInput:hover {
+    border: 1px solid #007BFF;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+.contenitore {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottone {
+    margin-top: 2em;
+    margin-left: -2em;
+}
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 1.5s ease-in-out;
+}

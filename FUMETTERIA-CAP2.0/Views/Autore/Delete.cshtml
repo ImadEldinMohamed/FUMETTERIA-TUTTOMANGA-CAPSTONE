@@ -1,0 +1,40 @@
+﻿@model FUMETTERIA_CAP2._0.Models.Autore
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class=" text-center bold-text">ELIMINA AUTORE</h2>
+
+<h3 class="text-center bold-text">Sei sicuro di voler elimare l'autore?'</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal contenitore card color">
+        <dt>
+            <span class="bold-text">@Html.DisplayNameFor(model => model.nome)</span> 
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.nome)</span> 
+        </dd>
+
+        <dt>
+            <span class="bold-text"> @Html.DisplayNameFor(model => model.descrizione)</span>
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.descrizione)</span>  
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="ELIMINA" class="btn btn-primary " /> |
+            @Html.ActionLink("ritorna alla lista", "Index")
+        </div>
+    }
+</div>

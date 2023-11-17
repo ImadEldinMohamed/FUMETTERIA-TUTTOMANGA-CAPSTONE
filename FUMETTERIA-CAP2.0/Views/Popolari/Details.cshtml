@@ -1,0 +1,26 @@
+﻿@model FUMETTERIA_CAP2._0.Models.Popolare
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="bold-text text-center">DETTAGLI DEL PERSONAGGIO   </h2>
+
+<div class="text-center contenitore slide-in">
+    <div class="card color" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-4">
+                <img src="~/Content/img/@Model.foto" alt="Immagine del Manga" class="img-fluid rounded-start " style="height:auto">
+                <h5 class="card-title">@Model.nome</h5>
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+
+                    <p class="card-text bold-text">DESCRIZIONE:@Model.descrizione</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

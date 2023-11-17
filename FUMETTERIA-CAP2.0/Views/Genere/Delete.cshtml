@@ -1,0 +1,33 @@
+﻿@model FUMETTERIA_CAP2._0.Models.Genere
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class=" text-center bold-text">ELIMINA GENERE</h2>
+
+<h3 class="text-center bold-text">Sei sicuro di voler elimare il genere?'</h3>
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal contenitore card color">
+        <dt>
+            <span class="bold-text"> @Html.DisplayNameFor(model => model.genere1)</span> 
+        </dt>
+
+        <dd>
+            <span class="bold-text">@Html.DisplayFor(model => model.genere1)</span> 
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Elimina" class="btn btn-primary " /> |
+            @Html.ActionLink("Ritorna alla lista", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FUMETTERIA_CAP2._0.Models.Manga>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">AGGIORNA IL CATALOGO</h2>
+
+<p>
+    @Html.ActionLink("Aggiungi un manga", "Create", null, new { @class = "text-primary bold-text  " })
+</p>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+        @foreach (FUMETTERIA_CAP2._0.Models.Manga item in Model)
+        {
+
+            <div class="mx-4 mx-sm-0 mb-3 slide-in ">
+                <div class="card h-100  g-3 border border-dark color " style="width: 12rem;">
+                    <img src="~/Content/img/@item.foto" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title text-center"><strong>@item.nome</strong></h6>
+                        <p class="card-text text-center"><strong>@item.prezzo.ToString("C0")</strong></p>
+                        <div class="d-flex">
+                            <div>
+                                <a href="/Manga/Edit/@item.IDmanga" class="btn btn-my-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                                    </svg>
+                                </a>
+
+                            </div>
+
+                            <div>
+                                <a href="/Manga/Details/@item.IDmanga" class="btn btn-my-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="/Manga/delete/@item.IDmanga" class="btn btn-my-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-x-fill" viewBox="0 0 16 16">
+                                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6.854 8.146 8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 1 1 .708-.708z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

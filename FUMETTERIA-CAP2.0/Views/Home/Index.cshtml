@@ -1,0 +1,71 @@
+﻿﻿@model  IEnumerable<FUMETTERIA_CAP2._0.Models.Manga>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="bold-text text-center" >IL NOSTRO CATALOGO</h2>
+
+@using (Html.BeginForm("CercaManga", "Home", FormMethod.Get, new { id = "searchForm" }))
+{<div class="search-bar">
+        <input type="text" id="searchInput" name="nome" placeholder="Inserisci il titolo del manga..." />
+        <button id="searchButton" name="searchButton">Cerca</button>
+    </div>
+}
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5  ">
+        @foreach (FUMETTERIA_CAP2._0.Models.Manga item in Model)
+        {
+
+            <div class="mx-4 mx-sm-0 mb-3 slide-in">
+                <div class="card color h-100 g-3  " style="width: 12rem;">
+                    <img src="~/Content/img/@item.foto" class="card-img-top" alt="..." >
+                    <div class="card-body">
+                        <h6 class="card-title text-center"><strong>@item.nome</strong></h6>
+                        <p class="card-text mx-5"><strong>@item.prezzo.ToString("C0")</strong></p>
+                        <div class="d-flex">
+                            <div >
+                                @using (Html.BeginForm("aggiungialcarrello", "Carrello", FormMethod.Post))
+                                {
+                                    @Html.Hidden("IDmanga", item.IDmanga)
+                                    @Html.Hidden("Quantita", 1)
+                                  
+                                            <button type="submit" class="btn btn-my-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                                </svg>
+                                            </button>
+                                      
+                                }
+                            </div>
+
+                            <div >
+
+                                @using (Html.BeginForm("AggiungiAiPreferiti", "Preferito", FormMethod.Post))
+                                {
+                                    @Html.Hidden("IDmanga", item.IDmanga)
+
+                                    @Html.Hidden("aggiuntapreferiti", true)
+
+                                    <button type="submit" class="btn btn-my-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-balloon-heart-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2.376 2.376 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386Z" />
+                                        </svg>
+                                    </button>
+                                }
+                            </div>
+                            <div >
+                                <a href="/Manga/Details/@item.IDmanga" class="btn btn-my-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

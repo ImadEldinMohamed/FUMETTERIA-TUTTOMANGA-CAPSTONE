@@ -1,0 +1,70 @@
+﻿@model FUMETTERIA_CAP2._0.Models.Ordine
+
+@{
+    ViewBag.Title = "creaOrdine";
+}
+
+
+<h3 class="text-center bold-text">ORDINA</h3>
+<div>
+    @if (ViewBag.Carrello != null)
+    {
+        foreach (FUMETTERIA_CAP2._0.Models.Carrello o in ViewBag.Carrello)
+        {
+
+            <div class="d-flex  align-items-center justify-content-center card color slide-in">
+                <div class="d-flex">
+                    <img src="~/Content/img/@o.Foto" class="card-img-top" alt="..." style="width: auto;height:200px;">
+                    <div class="d-flex flex-column">
+                        <p class="bold-text">@o.Nome</p>
+
+                        <p class="bold-text">Quantità:@o.Quantita</p>
+                        <p class="bold-text"> Prezzo:  @o.CostoFumetti.ToString("C0")</p>
+
+                   
+
+                    </div>
+                </div>
+            </div>
+
+        }
+        <div class="text-center card color">
+
+            <p class="bold-text">Totale: €@FUMETTERIA_CAP2._0.Models.Carrello.CostoTot(ViewBag.Carrello).ToString("F0")</p>
+        </div>
+    }
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal card color contenitore  ">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+            <div class="form-group   ">
+                @Html.LabelFor(model => model.indirizzo, htmlAttributes: new { @class = "control-label  bold-text " })
+                <div class="col-md-10    ">
+                    @Html.EditorFor(model => model.indirizzo, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.indirizzo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group  ">
+                <div class=" col-md-10">
+                    <input type="submit" value="Concludi Ordine" class="btn btn-primary my-2 " />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="bold-text text-center"> troverai il tuo acquisto in DETTAGLIO ORDINI</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

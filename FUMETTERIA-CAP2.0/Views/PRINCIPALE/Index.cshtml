@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="~/Content/img/zorosfondo.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="bold-text" style="color:yellow">TUTTOMANGA</h1>
+                    <h2 class="bold-text" style="color:yellow" >troverai moltissimi manga e molto altro!! </h2>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/Content/img/shotosfondo.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="bold-text"style="color:red">CURIOSITA</h1>
+                    <h2  class="bold-text" style="color:red">troverai informazioni sui tuoi personaggi preferiti e sugli autori!! </h2>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="~/Content/img/itachisfondo.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="bold-text" style="color:yellow">10 ANNI DI ESPERIENZA</h1>
+                    <h2  class="bold-text" style="color:yellow">rendere felice il cliente è il nostro principale obiettivo"!!</h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="~/Content/img/gokusfondo2.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="bold-text" style="color:red">VISITA IL SITO</h1>
+                    <h2 class="bold-text" style="color:red">cosa aspetti fai il login o registrati se non hai un account!!</h2>
+                    @Html.ActionLink("ACCEDI SUBITO", "Login", "Login", new { area = "" }, new { @class = "nav-link bold-text  " })
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+

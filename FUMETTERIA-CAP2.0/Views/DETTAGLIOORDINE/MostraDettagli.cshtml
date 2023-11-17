@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FUMETTERIA_CAP2._0.Models.DettaglioOrdine>
+
+@{
+    ViewBag.Title = "MostraDettagli";
+}
+
+<h2 class="text-center bold-text">I MIEI ORDINI</h2>
+
+@if (Model == null)
+{
+    <p class="alert alert-primary">@ViewBag.Errore</p>
+}
+else
+{
+<div>
+   
+    <table class="table  table-striped table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manga.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ordine.indirizzo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manga.prezzo)
+            </th>
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr >
+                <td>
+                   <span class="bold-text card color">@Html.DisplayFor(modelItem => item.Manga.nome)</span>
+                </td>
+                <td>
+                    <span class="bold-text card color">@Html.DisplayFor(modelItem => item.Ordine.indirizzo) </span> 
+                </td>
+                <td>
+                   <span class="bold-text card color"> @Html.DisplayFor(modelItem => item.quantita)</span>
+                </td>
+
+                <td>
+                    <span class="bold-text card color">@( (item.Manga.prezzo * item.quantita).ToString("F0") )</span> 
+                </td>
+            </tr>
+        }
+
+    </table>
+    
+</div>
+
+}
+
+<div class="bold-text card color"> grazie di aver scelto TUTTOMANGA i tempi di spedizione sono  di 3 giorni lavorativi,in caso di ritardi contattaci!!</div>
