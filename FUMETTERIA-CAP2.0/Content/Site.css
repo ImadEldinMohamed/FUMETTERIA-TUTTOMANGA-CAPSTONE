@@ -94,7 +94,7 @@ body {
     margin-left: -2em;
 }
 
-
+/* animazione per le card */
 @keyframes slideIn {
     from {
         opacity: 0;
